@@ -1,5 +1,11 @@
-html, body{
+html, body, p{
     margin: 0;
+}
+p{
+    margin-right: 5%;
+    font-size: 2vw;
+    font-weight: bolder;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .container{
@@ -24,6 +30,10 @@ html, body{
     width: 80%;
     height:12%;
     background-color: lightyellow;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    
 }
 
 .buttons {
