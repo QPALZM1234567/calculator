@@ -1,0 +1,16 @@
+html, body{
+    margin: 0;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back {
+    background-color: blue;
+    width: 20%;
+    aspect-ratio: 2/3;
+}
