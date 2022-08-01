@@ -32,7 +32,7 @@ p{
     background-color: lightyellow;
     display: flex;
     justify-content: right;
-    align-items: center;
+    align-items: space-between;
     
 }
 
@@ -40,4 +40,14 @@ p{
     width: 80%;
     height: 72%;
     background-color: white;
+    display:flex;
+    flex-flow: row wrap;
+    gap: 4%;
+    
+}
+
+.button {
+    width: 22%;
+    height: 22%;
+    background-color: black;
 }
