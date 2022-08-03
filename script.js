@@ -73,8 +73,11 @@ for (let i = 0; i < 10; i++) {
                     text.textContent = i;
                     action = false;
                 } else {
-                    text.textContent = text.textContent + '0';
-                    number = true;
+                    if (text.textContent.length < 13) {
+                        text.textContent = text.textContent + '0';
+                        number = true;
+                    }
+                    
                 }
                 
             }
@@ -91,8 +94,11 @@ for (let i = 0; i < 10; i++) {
                     text.textContent = i;
                     action = false;
                 } else {
-                    text.textContent = text.textContent + i;
-                    number = true;
+                    if (text.textContent.length < 13) {
+                        text.textContent = text.textContent + i;
+                        number = true;
+                    }
+                    
                 }
                 
             }
@@ -185,6 +191,17 @@ function calculate() {
                 number = true;
                 action = false;
             }
+            
+        }
+        if (text.textContent > 13) {
+            alert("Answer is too large: " + text.textContent);
+            text.textContent = "0";
+            start = true;
+            number = false;
+            action = false;
+            end = false;
+            type = "";
+            prior = "hello";
             
         }
     }
