@@ -39,7 +39,6 @@ p{
 .buttons {
     width: 80%;
     height: 72%;
-    background-color: white;
     display:flex;
     flex-flow: row wrap;
     gap: 4%;

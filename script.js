@@ -106,43 +106,89 @@ for (let i = 0; i < 10; i++) {
 const add = document.querySelector('.plus');
 add.addEventListener('click', () => {
     if (end) {
-        //end action
-    } else if (number) {
-        action = true;
-        type = "plus";
-        prior = text.textContent;
-    }
+        calculate();
+    } 
+
+    action = true;
+    type = "plus";
+    prior = text.textContent;
+    
 });
 
 const subtract = document.querySelector('.minus');
 subtract.addEventListener('click', () => {
     if (end) {
-        //end action
-    } else if (number) {
-        action = true;
-        type = "minus";
-        prior = text.textContent;
+        calculate()
     }
+
+    action = true;
+    type = "minus";
+    prior = text.textContent;
+
 });
 
 const multiply = document.querySelector('.x');
 multiply.addEventListener('click', () => {
     if (end) {
-        //end action
-    } else if (number) {
-        action = true;
-        type = "x";
-        prior = text.textContent;
-    }
+        calculate();
+    } 
+    action = true;
+    type = "x";
+    prior = text.textContent;
+    
 });
 
 const divide = document.querySelector('.divide');
 divide.addEventListener('click', () => {
     if (end) {
-        //end action
-    } else if (number) {
-        action = true;
-        type = "divide";
-        prior = text.textContent;
-    }
+        calculate();
+    } 
+    action = true;
+    type = "divide";
+    prior = text.textContent;
+    
 });
+
+
+//Add equal functionality that can be reused
+function calculate() {
+    if (end) {
+        if (type === "plus") {
+            let answer = parseFloat(prior) + parseFloat(text.textContent);
+            answer = Math.round((answer + Number.EPSILON) * 100) / 100;
+            text.textContent = answer;
+            end = false;
+            number = true;
+            action = false;
+        } else if (type === "minus") {
+            let answer = parseFloat(prior) - parseFloat(text.textContent);
+            answer = Math.round((answer + Number.EPSILON) * 100) / 100;
+            text.textContent = answer;
+            end = false;
+            number = true;
+            action = false;
+        } else if (type === "x") {
+            let answer = parseFloat(prior) * parseFloat(text.textContent);
+            answer = Math.round((answer + Number.EPSILON) * 100) / 100;
+            text.textContent = answer;
+            end = false;
+            number = true;
+            action = false;
+        } else if (type === "divide") {
+            if (parseFloat(text.textContent) === 0) {
+                alert("You really shouldn't divide by 0");
+            } else {
+                let answer = parseFloat(prior) / parseFloat(text.textContent);
+                answer = Math.round((answer + Number.EPSILON) * 100) / 100;
+                text.textContent = answer;
+                end = false;
+                number = true;
+                action = false;
+            }
+            
+        }
+    }
+}
+
+const equals = document.querySelector(".equals");
+equals.addEventListener('click', calculate);
