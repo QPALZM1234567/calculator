@@ -193,7 +193,7 @@ function calculate() {
             }
             
         }
-        if (text.textContent > 13) {
+        if (text.textContent.length > 13) {
             alert("Answer is too large: " + text.textContent);
             text.textContent = "0";
             start = true;
