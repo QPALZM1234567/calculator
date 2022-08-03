@@ -5,7 +5,8 @@ p{
     margin-right: 5%;
     font-size: 2vw;
     font-weight: bolder;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: default;
 }
 
 .container{
@@ -49,4 +50,9 @@ p{
     width: 22%;
     height: 22%;
     background-color: black;
+    cursor: pointer;
+}
+
+.button p {
+    cursor: pointer;
 }
