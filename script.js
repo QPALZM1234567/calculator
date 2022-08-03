@@ -1,7 +1,10 @@
 //states
 let start = true;
 let number = false;
+let action = false;
 let end = false;
+let type = "";
+let prior = "hello";
 
 
 const btns = document.querySelector(".buttons");
@@ -52,6 +55,11 @@ const clear = document.querySelector('.clear');
 clear.addEventListener('click', () => {
     text.textContent = "0";
     start = true;
+    number = false;
+    action = false;
+    end = false;
+    type = "";
+    prior = "hello";
 });
 
 for (let i = 0; i < 10; i++) {
@@ -60,7 +68,15 @@ for (let i = 0; i < 10; i++) {
     if (i === 0) {
         temp.addEventListener('click', () => {
             if (!start) {
-                text.textContent = text.textContent + '0';
+                if (action) {
+                    end = true;
+                    text.textContent = i;
+                    action = false;
+                } else {
+                    text.textContent = text.textContent + '0';
+                    number = true;
+                }
+                
             }
         });
     } else {
@@ -68,10 +84,65 @@ for (let i = 0; i < 10; i++) {
             if (start) {
                 text.textContent = i;
                 start = false;
+                number = true;
             } else {
-                text.textContent = text.textContent + i;
+                if (action) {
+                    end = true;
+                    text.textContent = i;
+                    action = false;
+                } else {
+                    text.textContent = text.textContent + i;
+                    number = true;
+                }
+                
             }
+
         })
         
     }
 }
+
+//Add functionality to the operator buttons
+const add = document.querySelector('.plus');
+add.addEventListener('click', () => {
+    if (end) {
+        //end action
+    } else if (number) {
+        action = true;
+        type = "plus";
+        prior = text.textContent;
+    }
+});
+
+const subtract = document.querySelector('.minus');
+subtract.addEventListener('click', () => {
+    if (end) {
+        //end action
+    } else if (number) {
+        action = true;
+        type = "minus";
+        prior = text.textContent;
+    }
+});
+
+const multiply = document.querySelector('.x');
+multiply.addEventListener('click', () => {
+    if (end) {
+        //end action
+    } else if (number) {
+        action = true;
+        type = "x";
+        prior = text.textContent;
+    }
+});
+
+const divide = document.querySelector('.divide');
+divide.addEventListener('click', () => {
+    if (end) {
+        //end action
+    } else if (number) {
+        action = true;
+        type = "divide";
+        prior = text.textContent;
+    }
+});
